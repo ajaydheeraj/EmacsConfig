@@ -2,9 +2,9 @@
 ;; (xterm-mouse-mode t)
 ;; (defun track-mouse (e))
 (add-to-list 'load-path "~/.emacs.d/")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
-(ac-config-default)
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
+;; (ac-config-default)
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-m" 'newline-and-indent)))
 (put 'erase-buffer 'disabled nil)
 (custom-set-variables
@@ -39,6 +39,8 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c C-k") 'dabbrev-expand)
+(global-set-key (kbd "C-c s") 'replace-string)
 (add-to-list 'auto-mode-alist '("\\.scm\\'" . electric-pair-mode))
 (global-unset-key (kbd "<left>"))
 (global-unset-key (kbd "<right>"))
@@ -66,4 +68,5 @@
 
 (add-hook 'python-mode-common-hook
 (font-lock-mode)) 
-
+(setq sentence-end-double-space nil)   
+(setq x-select-enable-clipboard t)
